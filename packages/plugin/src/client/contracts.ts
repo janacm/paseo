@@ -133,6 +133,9 @@ interface PluginClientContextAliases {
 export interface PluginClientContext extends PluginCommandCapabilities, PluginClientContextAliases {
   /** Play a base64-encoded audio file on this client; resolves when playback ends. */
   playAudio(source: { base64: string; mimeType: string }): Promise<void>;
+  addResponseAction(
+    contribution: import("./response-actions.js").PluginResponseActionContribution,
+  ): PluginCleanup;
   addSettingsScreen(contribution: PluginSettingsScreenContribution): PluginCleanup;
   addScreen(contribution: PluginScreenContribution): PluginCleanup;
   addSidebarHeaderItem(contribution: PluginSidebarItemContribution): PluginCleanup;

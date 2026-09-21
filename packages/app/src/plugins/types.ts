@@ -42,6 +42,7 @@ export interface EvaluatedPlugin {
   themes: PluginThemeContribution[];
   timelineTransformers: PluginTimelineTransformerContribution[];
   timelineRenderers: PluginTimelineRendererContribution[];
+  responseActions?: import("@getpaseo/plugin/client").PluginResponseActionContribution[];
 }
 
 export interface InstalledPlugin extends EvaluatedPlugin {

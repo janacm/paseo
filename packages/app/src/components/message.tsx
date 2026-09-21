@@ -579,6 +579,7 @@ export const UserMessage = memo(function UserMessage({
 });
 
 interface AssistantTurnFooterProps {
+  actions?: React.ReactNode;
   getContent: () => string;
   completedAt?: Date;
   durationMs?: number | null;
@@ -623,6 +624,7 @@ const TIMESTAMP_REVEAL_MS = 3000;
  * A turn without a visible start shows its end timestamp directly.
  */
 export const AssistantTurnFooter = memo(function AssistantTurnFooter({
+  actions,
   getContent,
   completedAt,
   durationMs,
@@ -685,6 +687,7 @@ export const AssistantTurnFooter = memo(function AssistantTurnFooter({
         containerStyle={assistantTurnFooterStylesheet.copyButton}
       />
       {canFork ? <AssistantForkMenu onFork={handleFork} /> : null}
+      {actions}
       {primaryLabel ? (
         <Pressable
           onPress={handlePress}
