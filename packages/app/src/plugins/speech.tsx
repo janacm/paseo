@@ -10,7 +10,7 @@ import {
 import type { PluginSpeech } from "@getpaseo/plugin/client";
 import type { DaemonClient } from "@getpaseo/client/internal/daemon-client";
 import { useVoiceAudioEngineOptional, useVoiceRuntimeOptional } from "@/contexts/voice-context";
-import type { AudioEngine } from "@/voice/audio-engine-types";
+import type { AudioEngine } from "@/audio";
 import { createReadAloud } from "@/voice/read-aloud";
 import { useSessionStore } from "@/stores/session-store";
 

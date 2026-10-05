@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import type { AudioPlaybackSource } from "./audio-engine-types";
+import type { AudioPlaybackSource } from "@/audio";
 import { createReadAloud, splitSpeechText } from "./read-aloud";
 
 function deferred<T>() {

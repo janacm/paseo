@@ -5,9 +5,9 @@ import type {
 } from "@getpaseo/plugin/client";
 import { useHostRuntimeClient } from "@/runtime/host-runtime";
 import { useInstalledPlugins } from "./registry";
-import { PluginRuntimeBoundary } from "./runtime-boundary";
+import { PluginInstallationProvider } from "./installation-provider";
 import { SurfaceErrorBoundary } from "./surface-error-boundary";
-import { useSpeech } from "./speech";
+import { PluginSpeechProvider, useSpeech } from "./speech";
 import { ResponseActionMenu } from "./response-action-menu";
 
 function ResponseMenu(props: {
@@ -50,9 +50,11 @@ export function PluginResponseActions(props: {
               Surface={ResponseMenu}
               resetKey={props.responseId}
             >
-              <PluginRuntimeBoundary plugin={plugin} client={client}>
-                <ResponseMenu {...props} action={action} />
-              </PluginRuntimeBoundary>
+              <PluginInstallationProvider plugin={plugin}>
+                <PluginSpeechProvider client={client} serverId={plugin.serverId}>
+                  <ResponseMenu {...props} action={action} />
+                </PluginSpeechProvider>
+              </PluginInstallationProvider>
             </SurfaceErrorBoundary>
           )),
         )}

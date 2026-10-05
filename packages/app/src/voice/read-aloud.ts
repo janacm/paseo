@@ -1,6 +1,6 @@
 import { Buffer } from "buffer";
 import type { PluginSpeechInput, PluginSpeechState } from "@getpaseo/plugin/client";
-import type { AudioEngine } from "./audio-engine-types";
+import type { AudioEngine } from "@/audio";
 
 type Render = (
   input: { agentId: string; operation: "summarize" | "synthesize"; text: string },
